@@ -105,10 +105,10 @@ var context = canvas.getContext("2d");
 
 var rect = new Rect();
 rect.width = 500;
-rect.height = 20;
-rect.x=0;
+rect.height = 500;
+rect.x=10;
 rect.y=1000
-rect.color = '#000000'
+rect.color = '#0000FF'
 
 
 var rect2 = new Rect();
@@ -126,7 +126,7 @@ var bitmap = new Bitmap();
 bitmap.source = 'wander-icon.jpg';
 
 //渲染队列
-var renderQueue = [bitmap,rect2, rect, text];
+var renderQueue = [bitmap,rect, rect2, text];
 //资源加载列表
 var imageList = ['wander-icon.jpg'];
 
