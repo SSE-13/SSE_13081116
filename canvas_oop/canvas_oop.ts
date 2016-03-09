@@ -126,7 +126,7 @@ var bitmap = new Bitmap();
 bitmap.source = 'wander-icon.jpg';
 
 //渲染队列
-var renderQueue = [rect, rect2, text,bitmap];
+var renderQueue = [bitmap,rect, rect2, text];
 //资源加载列表
 var imageList = ['wander-icon.jpg'];
 
