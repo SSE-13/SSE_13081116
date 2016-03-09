@@ -104,9 +104,9 @@ var context = canvas.getContext("2d");
 
 
 var rect = new Rect();
-rect.width = 200;
-rect.height = 100;
-rect.color = '#00FF00'
+rect.width = 500;
+rect.height = 500;
+rect.color = '#0FFF00'
 
 
 var rect2 = new Rect();
@@ -114,7 +114,7 @@ rect2.width = 300;
 rect2.height = 50;
 rect2.x = 200;
 rect2.y = 200;
-rect2.rotation = Math.PI / 8;
+//rect2.rotation = Math.PI / 8;
 rect2.color = '#00FFFF'
 
 var text = new TextField();
