@@ -59,11 +59,11 @@ class Rect extends DisplayObject {
 }
 
 class TextField extends DisplayObject {
-
+    //color='#FFFFFF';
     render(context: CanvasRenderingContext2D) {
-        context.font = "20px Arial";
-        context.fillStyle = '#000000';
-        context.fillText('HelloWorld', 0, 20);
+        context.font = "50px Agency FB Bold";
+        context.fillStyle = '#FFFFFF';
+        context.fillText('FlappyBird', 0, 100);
     }
 }
 
@@ -102,33 +102,31 @@ function loadResource(imageList, callback) {
 var canvas: HTMLCanvasElement = document.getElementById("game") as HTMLCanvasElement;
 var context = canvas.getContext("2d");
 
-
+/*
 var rect = new Rect();
-rect.width = 500;
-rect.height = 500;
-rect.x=10;
-rect.y=1000
-rect.color = '#0000FF'
-
-
-var rect2 = new Rect();
-rect2.width = 0;
-rect2.height = 300;
-rect2.x = 10;
-rect2.y = 500;
-//rect2.rotation = Math.PI / 8;
-rect2.color = '#00FFFF'
+rect.width = 70;
+rect.height = 100;
+rect.x=40;
+rect.y=300;
+rect.color = '#3e9602'
+*/
 
 var text = new TextField();
-text.x = 10;
+text.x = 30;
+
 
 var bitmap = new Bitmap();
 bitmap.source = 'wander-icon.jpg';
 
+var bitmap2 = new Bitmap();
+bitmap2.source = '1.png';
+bitmap2.x=100;
+bitmap2.y=150;
+
 //渲染队列
-var renderQueue = [bitmap,rect, rect2, text];
+var renderQueue = [bitmap,bitmap2,text];
 //资源加载列表
-var imageList = ['wander-icon.jpg'];
+var imageList = ['wander-icon.jpg','1.png'];
 
 //先加载资源，加载成功之后执行渲染队列
 loadResource(imageList, function() {
