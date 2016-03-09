@@ -108,13 +108,13 @@ rect.width = 500;
 rect.height = 20;
 rect.x=0;
 rect.y=1000
-rect.color = '#0FFF00'
+rect.color = '#000000'
 
 
 var rect2 = new Rect();
-rect2.width = 300;
-rect2.height = 50;
-rect2.x = 200;
+rect2.width = 500;
+rect2.height = 300;
+rect2.x = 0;
 rect2.y = 200;
 //rect2.rotation = Math.PI / 8;
 rect2.color = '#00FFFF'
