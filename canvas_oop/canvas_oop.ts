@@ -104,10 +104,10 @@ var context = canvas.getContext("2d");
 
 
 var rect = new Rect();
-rect.width = 100;
+rect.width = 500;
 rect.height = 20;
 rect.x=0;
-rect.y=600
+rect.y=1000
 rect.color = '#0FFF00'
 
 
