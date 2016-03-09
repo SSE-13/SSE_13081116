@@ -112,10 +112,10 @@ rect.color = '#000000'
 
 
 var rect2 = new Rect();
-rect2.width = 500;
+rect2.width = 0;
 rect2.height = 300;
-rect2.x = 0;
-rect2.y = 200;
+rect2.x = 10;
+rect2.y = 500;
 //rect2.rotation = Math.PI / 8;
 rect2.color = '#00FFFF'
 
@@ -126,7 +126,7 @@ var bitmap = new Bitmap();
 bitmap.source = 'wander-icon.jpg';
 
 //渲染队列
-var renderQueue = [bitmap,rect, rect2, text];
+var renderQueue = [bitmap,rect2, rect, text];
 //资源加载列表
 var imageList = ['wander-icon.jpg'];
 
