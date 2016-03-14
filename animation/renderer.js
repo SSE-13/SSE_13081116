@@ -111,7 +111,7 @@ var RenderCore = (function () {
         var self = this;
         loadResource(resourceList, function () {
             requestAnimationFrame(self.onEnterFrame.bind(self));
-        });
+        }); 
     };
     RenderCore.prototype.onEnterFrame = function () {
         context.clearRect(0, 0, canvas.width, canvas.height);

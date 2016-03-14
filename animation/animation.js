@@ -92,7 +92,7 @@ var Body = (function () {
 			this.x = BOUNDS_RIGHT*2 - this.width*2 - this.x;
         }
 		else if(this.x <= BOUNDS_LEFT)
-		{
+		{  
             this.vx = -BOUNCE * this.vx;
 			//处理弹跳越界部分
 			this.x = BOUNDS_LEFT * 2 - this.x;
@@ -101,7 +101,7 @@ var Body = (function () {
         var displayObject = this.displayObject;
         displayObject.x = this.x;
         displayObject.y = this.y;
-    }; 
+    };  
     return Body;
 }());
 var rect = new Rect();

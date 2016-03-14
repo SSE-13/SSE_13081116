@@ -118,7 +118,7 @@ class RenderCore {
         loadResource(resourceList, function() {
             requestAnimationFrame(self.onEnterFrame.bind(self));
         })
-
+ 
     }
 
     onEnterFrame() {
