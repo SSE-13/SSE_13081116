@@ -101,7 +101,7 @@ var Body = (function () {
         var displayObject = this.displayObject;
         displayObject.x = this.x;
         displayObject.y = this.y;
-    };
+    }; 
     return Body;
 }());
 var rect = new Rect();

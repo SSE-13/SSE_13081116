@@ -7,7 +7,7 @@ var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 /**
  * 基类，负责处理x,y,rotation 等属性
- */
+ */ 
 var DisplayObject = (function () {
     function DisplayObject() {
         this.x = 0;
