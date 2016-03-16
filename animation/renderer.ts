@@ -6,8 +6,7 @@ var context = canvas.getContext("2d");
 class DisplayObject {
 
     x = 0;
-
-    y = 0; 
+    y = 0;
 
     rotation = 0;
 
@@ -21,9 +20,8 @@ class DisplayObject {
     }
 
     render(context: CanvasRenderingContext2D) {
-
+        
     }
-
 }
 
 class Bitmap extends DisplayObject {
@@ -118,11 +116,13 @@ class RenderCore {
         loadResource(resourceList, function() {
             requestAnimationFrame(self.onEnterFrame.bind(self));
         })
- 
+
     }
 
     onEnterFrame() {
         context.clearRect(0, 0, canvas.width, canvas.height);
+		//为渲染区域添加线框
+        context.strokeRect(0, 0, canvas.width, canvas.height);
         context.stroke();
         this.drawQueue(this.renderQueue);
         requestAnimationFrame(this.onEnterFrame.bind(this));

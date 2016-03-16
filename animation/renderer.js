@@ -7,7 +7,7 @@ var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 /**
  * 基类，负责处理x,y,rotation 等属性
- */ 
+ */
 var DisplayObject = (function () {
     function DisplayObject() {
         this.x = 0;
@@ -111,12 +111,13 @@ var RenderCore = (function () {
         var self = this;
         loadResource(resourceList, function () {
             requestAnimationFrame(self.onEnterFrame.bind(self));
-        }); 
+        });
     };
     RenderCore.prototype.onEnterFrame = function () {
         context.clearRect(0, 0, canvas.width, canvas.height);
+        //为渲染区域添加线框
         context.strokeRect(0, 0, canvas.width, canvas.height);
-		context.stroke();
+        context.stroke();
         this.drawQueue(this.renderQueue);
         requestAnimationFrame(this.onEnterFrame.bind(this));
     };

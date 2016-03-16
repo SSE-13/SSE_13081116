@@ -7,6 +7,7 @@ var BOUNDS_BOTTOM = 400;
 var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
 var BOUNCE = 0.95;
+//摩擦减速因数(改了)
 var friction = 0.99;
 /**
  * 计时器系统
@@ -43,65 +44,56 @@ var Body = (function () {
         this.y = 0;
         this.width = 0;
         this.height = 0;
+        //添加属性:是否接触地面
+        this.touchGround = false;
         this.displayObject = displayObject;
     }
     Body.prototype.onTicker = function (duringTime) {
-		//如果开始滑动, 不必计算重力加速度和Y轴位移
-		if(this.vy === 0 && BOUNDS_BOTTOM <= this.y + this.height)
-		{
-		
-		}
-		else
-		{
-			this.vy += duringTime * GRAVITY;
-			this.y += duringTime * this.vy;
-		}
+        //如果未触地开始滑动,计算重力加速度和Y轴位移,否则不计算
+        if (!this.touchGround) {
+            this.vy += duringTime * GRAVITY;
+            this.y += duringTime * this.vy;
+        }
         this.x += duringTime * this.vx;
-		
-		var dstg = BOUNDS_BOTTOM - this.y - this.height;//离地面高度
-		
-		//是否开始滑动
-		if(Math.abs(this.vy) <= 1 && Math.abs(dstg)<=1)
-		{
-			this.vy = 0;
-			this.y = BOUNDS_BOTTOM - this.height;
-		}
-		//Add friction
-		if (this.vy === 0) {
-			this.vx = friction * this.vx;
-		}
-		
+        //离地面高度
+        var dstg = BOUNDS_BOTTOM - this.y - this.height;
+        //判断是否触地开始滑动
+        if (Math.abs(this.vy) <= 1 && Math.abs(dstg) <= 1) {
+            this.touchGround = true;
+            this.vy = 0;
+            this.y = BOUNDS_BOTTOM - this.height;
+        }
+        //Add friction
+        if (this.vy === 0) {
+            this.vx = friction * this.vx;
+        }
         //反弹
-        if (dstg <= 0)
-		{
-			this.vy = -BOUNCE * this.vy;
-			//处理弹跳越界部分
-			this.y = BOUNDS_BOTTOM*2 - this.y - this.height*2;
-        }
-		else if(this.y <= BOUNDS_TOP)
-		{
+        if (dstg <= 0) {
             this.vy = -BOUNCE * this.vy;
-			//处理弹跳越界部分
-			this.y = BOUNDS_TOP*2 - this.y;
-		}
-        //TODO： 左右越界反弹
-        if (this.x + this.width >= BOUNDS_RIGHT)
-		{
-            this.vx = -BOUNCE * this.vx;
-			//处理弹跳越界部分
-			this.x = BOUNDS_RIGHT*2 - this.width*2 - this.x;
+            //处理弹跳越界部分
+            this.y = BOUNDS_BOTTOM * 2 - this.height * 2 - this.y;
         }
-		else if(this.x <= BOUNDS_LEFT)
-		{  
+        else if (this.y <= BOUNDS_TOP) {
+            this.vy = -BOUNCE * this.vy;
+            //处理弹跳越界部分
+            this.y = BOUNDS_TOP * 2 - this.y;
+        }
+        //TODO： 左右越界反弹
+        if (this.x + this.width >= BOUNDS_RIGHT) {
             this.vx = -BOUNCE * this.vx;
-			//处理弹跳越界部分
-			this.x = BOUNDS_LEFT * 2 - this.x;
-		}
+            //处理弹跳越界部分
+            this.x = BOUNDS_RIGHT * 2 - this.width * 2 - this.x;
+        }
+        else if (this.x <= BOUNDS_LEFT) {
+            this.vx = -BOUNCE * this.vx;
+            //处理弹跳越界部分
+            this.x = BOUNDS_LEFT * 2 - this.x;
+        }
         //根据物体位置更新显示对象属性
         var displayObject = this.displayObject;
         displayObject.x = this.x;
         displayObject.y = this.y;
-    };  
+    };
     return Body;
 }());
 var rect = new Rect();
