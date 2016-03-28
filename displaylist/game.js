@@ -3,7 +3,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var maincontainer = new render.DisplayObjectContainer();
+var mainContainer = new render.DisplayObjectContainer();
 var humanContainer = new render.DisplayObjectContainer();
 var head = new render.Bitmap();
 var trunk = new render.Bitmap();
@@ -23,23 +23,25 @@ humanContainer.addChild(left_leg);
 humanContainer.addChild(right_leg);
 humanContainer.addChild(left_arm);
 humanContainer.addChild(right_arm);
+humanContainer.x = -50;
+humanContainer.y = -60;
+mainContainer.addChild(humanContainer);
 var renderCore = new render.RenderCore();
-renderCore.start(humanContainer, ["head.png", "trunk.png", "leftleg.png", "rightleg.png", "lefthand.png", "righthand.png"]);
+renderCore.start(mainContainer, ["head.png", "trunk.png", "leftleg.png", "rightleg.png", "lefthand.png", "righthand.png"]);
 var HumanBody = (function (_super) {
     __extends(HumanBody, _super);
     function HumanBody() {
         _super.apply(this, arguments);
         this.vx = 4;
-        this.y = 100;
+        this.y = 200;
     }
     HumanBody.prototype.onTicker = function (duringTime) {
         this.x += duringTime * this.vx;
-        this.y += duringTime * this.vy;
-        this.rotation += Math.PI * duringTime;
+        this.rotation += 3 * duringTime * Math.PI;
     };
     return HumanBody;
 }(Body));
 var ticker = new Ticker();
-var body = new HumanBody(humanContainer);
+var body = new HumanBody(mainContainer);
 ticker.start([body]);
 //# sourceMappingURL=game.js.map
