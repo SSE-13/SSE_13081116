@@ -7,7 +7,7 @@ var BOUNDS_BOTTOM = 400;
 var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
 var BOUNCE = 0.95;
-//摩擦减速因数(改了)
+//摩擦减速因数(改了) 
 var friction = 0.99;
 /**
  * 计时器系统

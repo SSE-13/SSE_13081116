@@ -1,7 +1,8 @@
 
+//之前没写Finish homework 重交一份
 /**
  * 重力加速度
- */
+ */ 
 const GRAVITY = 9.8;
 
 const BOUNDS_TOP=0;

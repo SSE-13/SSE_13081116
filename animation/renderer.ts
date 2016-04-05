@@ -8,7 +8,7 @@ class DisplayObject {
     x = 0;
     y = 0;
 
-    rotation = 0;
+    rotation = 0; 
 
     draw(context: CanvasRenderingContext2D) {
         context.save();
