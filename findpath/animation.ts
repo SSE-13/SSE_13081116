@@ -1,6 +1,10 @@
+//之前没写finish homework 重交一份
+
 /**
  * 计时器系统
  */
+
+
 class Ticker {
 
     bodyQueue = [];

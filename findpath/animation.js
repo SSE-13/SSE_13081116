@@ -1,4 +1,4 @@
-/**
+/** 
  * 计时器系统
  */
 var Ticker = (function () {

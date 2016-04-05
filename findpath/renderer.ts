@@ -13,7 +13,7 @@ class DisplayObject {
 
     draw(context: CanvasRenderingContext2D) {
         context.save();
-        context.rotate(this.rotation);
+        context.rotate(this.rotation); 
         context.translate(this.x, this.y);
         this.render(context);
 

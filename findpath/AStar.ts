@@ -1,6 +1,6 @@
 module astar {
 
-
+ 
     export class Node {
 
         x: number;

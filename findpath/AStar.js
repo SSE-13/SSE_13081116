@@ -1,4 +1,4 @@
-var astar;
+var astar; 
 (function (astar) {
     var Node = (function () {
         function Node(x, y) {

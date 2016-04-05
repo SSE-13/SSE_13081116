@@ -11,7 +11,7 @@ var context = canvas.getContext("2d");
 var DisplayObject = (function () {
     function DisplayObject() {
         this.x = 0;
-        this.y = 0;
+        this.y = 0; 
         this.rotation = 0;
     }
     DisplayObject.prototype.draw = function (context) {

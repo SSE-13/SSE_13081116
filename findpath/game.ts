@@ -5,7 +5,7 @@ module game {
     const GRID_PIXEL_HEIGHT = 50;
 
     const NUM_ROWS = 12;
-
+ 
     const NUM_COLS = 12;
 
     export class WorldMap extends DisplayObject {
